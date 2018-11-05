@@ -1,0 +1,28 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_self
+ */
+
+ @import "bootstrap.min.scss";
+ @import "essentials.scss";
+ @import "layout.scss";
+ @import "header-1.scss";
+ @import "extralayers.scss";
+ @import "guillaume.scss";
+ @import "custom.scss";
+ @import "settings.scss";
+ @import "darkblue.scss";
+
+ .tp-leftarrow											{	z-index:100;cursor:pointer; position:relative;	background:url(/assets/large_left.png) no-Repeat top left;	width:40px;	height:40px;   }
+ .tp-rightarrow											{	z-index:100;cursor:pointer; position:relative;	background:url(/assets/large_right.png) no-Repeat top left;	width:40px;	height:40px;   }
+ 
