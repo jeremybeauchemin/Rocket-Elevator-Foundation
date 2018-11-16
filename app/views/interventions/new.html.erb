@@ -1,0 +1,222 @@
+<!-- WRAPPER -->
+		<div id="wrapper">
+			<!-- HOME -->	
+			<div id="header" class="navbar-toggleable-md sticky header-md clearfix " >
+				<!-- TOP NAV -->
+				<header id="topNav">
+					<div class="container-fluid">
+						<!-- Mobile Menu Button -->
+						<button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+							<i class="fa fa-bars"></i>
+						</button>
+
+						<!-- Logo -->
+						<a class="logo float-left" href="/">
+							<%= image_tag("_rocketelevators/R2.png", alt: "", data: { bgposition: "center"}) %>
+							<!--<img src="assets/images/_rocketelevators/R2.png" alt="" data-bgposition="CENTER " />-->
+						</a>
+						<!-- 
+							Top Nav 
+						-->
+						<div class="navbar-collapse collapse float-right nav-main-collapse submenu-dark">
+							<nav class="nav-main">
+								<ul id="topMain" class="nav nav-pills nav-main">
+									<li class="active"><!-- HOME -->
+										<a href="/">
+											HOME
+										</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+					</div>
+					
+				</header>
+				<!-- /Top Nav -->
+
+
+
+
+
+<!-- cascading dropdown -->
+
+<fieldset>
+	<input type="hidden" name="action" value="intervention_send" />
+
+
+<%= form_for, :intervention, %>
+<br>    <strong>Clients<strong>
+<div class="control-group text-red">
+		<div class="controls">
+       <%= collection_select(:customer, :customer_id, Customer.all, :id, :company, { :prompt => 'select' }, { :multiple => false, id: 'customer_select' } ) %>
+</div>
+</div>
+
+<br>
+<br>
+   <strong>Buildings<strong>
+<div class="control-group">
+		<div class="controls">
+      <%= collection_select(:building, :building_id, Building.all, :id, :customer_id, { :prompt => 'select' }, { :multiple => false, id: 'building_select' } ) %>
+</div>
+</div>
+
+
+
+<br>
+   <strong>Batteries<strong>
+<div class="control-group">
+		<div class="controls">
+      <%= collection_select(:battery, :battery_id, Battery.all, :id, :building_id, { :prompt => 'select' }, { :multiple => false, id: 'battery_select' } ) %>
+</div>
+</div>
+
+
+<br>
+<br>
+   <strong>Columns<strong>
+<div class="control-group">
+	<div class="controls">     
+	 <%= collection_select(:column, :column_id, Column.all, :id, :battery_id, { :prompt => 'NONE' }, { :multiple => false, id: 'column_select' } ) %>
+</div>
+</div>
+
+
+<br>
+<br>
+   <strong>Elevators<strong>
+<div class="control-group">
+	<div class="controls">    
+<%= collection_select(:elevator, :elevator_id, Elevator.all, :id, :column_id, { :prompt => 'NONE' }, { :multiple => false, id: 'elevator_select' } ) %>
+</div>
+</div>
+
+<br>
+<br>
+   <strong>Employees<strong>
+<div class="control-group">
+	<div class="controls">    
+<%= collection_select(:employee, :employee_id, Employee.all, :id, :name, {:prompt => 'NONE' }, { :multiple => false, id: 'employee_select' } ) %>
+</div>
+</div>
+
+
+<br>
+<br>
+<br>
+
+<div class="col-md-8">
+   <label for="contact:message">Project Description *</label>
+   <textarea required maxlength="5000" rows="4" class="form-control" name="lead[project_description]" id="lead:message"></textarea>
+</div>
+</div>
+
+
+                
+<div class="control-group">
+	<p>
+		<%= button_tag(class: "btn btn-red btn-danger btn-outline-primary") do %>
+			<i id="interventionSubmit" class="fa fa-check"></i> SUBMIT
+		<% end %>
+	</p>
+</div>
+
+
+
+<%= render 'form', intervention: @intervention %>
+
+<%= link_to 'Back', interventions_path %>
+
+</fieldset>
+
+<!-- cascading dropdown -->
+
+<!-- FOOTER -->
+			<footer id="footer">
+				<div class="container">	
+					<div class="row">	
+						<!-- col #1 -->
+						<div class="col-md-8">	
+							<h3 class="letter-spacing-1">WHY US?</h3>	
+							<p>
+								<strong>Rocket Elevators</strong>  <br/>
+								Because we are putting you on top of everything.
+							</p>
+							<h2>1-418-580-7055</h2>
+						</div>
+						<!-- /col #1 -->	
+						<!-- col #2 -->
+						<div class="col-md-4">
+							<h3 class="letter-spacing-1">KEEP IN TOUCH</h3>	
+							<!-- Newsletter Form -->
+							<p>Subscribe to Our Newsletter to get Important News & Offers</p>	
+							<form class="validate" action="php/newsletter.php" method="post" data-success="Subscribed! Thank you!" data-toastr-position="bottom-right">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+									<input type="email" id="email" name="email" class="form-control required" placeholder="Enter your Email">
+									<span class="input-group-btn">
+										<button class="btn btn-success" type="submit">Subscribe</button>
+									</span>
+								</div>
+							</form>
+							<!-- /Newsletter Form -->	
+						</div>
+						<!-- /col #2 -->	
+					</div>	
+				</div>
+
+				<div class="copyright">
+					<div class="container">
+						<ul class="float-right m-0 list-inline mobile-block">
+						</ul>
+						&copy; All Rights Reserved, Rocket Elevator
+					</div>
+				</div>	
+			</footer>
+			<!-- /FOOTER -->	
+		</div>
+		<!-- /wrapper -->
+	
+	
+		<!-- SCROLL TO TOP -->
+		<a href="#top" id="toTop"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%# <h1>New Intervention</h1> %>
+
+<%# <%= render 'form', intervention: @intervention %>
+
+<%# <%= link_to 'Back', interventions_path %> 

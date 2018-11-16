@@ -22,5 +22,6 @@
 //= require script_guillaume.js
 //= require scripts.js
 //= require quote.js
+//= require interventions.js
 
 

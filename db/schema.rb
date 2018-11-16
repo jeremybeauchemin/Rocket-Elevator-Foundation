@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_01_170652) do
+ActiveRecord::Schema.define(version: 2018_11_06_162038) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "address_type"
@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(version: 2018_11_01_170652) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "state"
+  end
+
+  create_table "authors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "employee_id"
+    t.integer "customer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "batteries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -177,6 +184,23 @@ ActiveRecord::Schema.define(version: 2018_11_01_170652) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.integer "employee_id"
+  end
+
+  create_table "interventions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "author_id"
+    t.integer "customer_id"
+    t.integer "building_id"
+    t.integer "battery_id"
+    t.integer "column_id"
+    t.integer "elevator_id"
+    t.integer "employee_id"
+    t.datetime "start"
+    t.datetime "end"
+    t.string "Result"
+    t.text "Report"
+    t.string "Status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "leads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

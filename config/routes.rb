@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   post 'twilio/sms'
   get 'leads/new'
   get 'leads/lead'
+  
 
   devise_for :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -31,9 +32,16 @@ Rails.application.routes.draw do
   post '/new_lead' => 'leads#new_lead'
   get '/audio_info' => 'pages#welcome'
 
+  get '/interventions/building_by_customer/:id' => 'interventions#building_by_customer'
+  get '/interventions/battery_by_building/:id' => 'interventions#battery_by_building'
+  get '/interventions/column_by_battery/:id' => 'interventions#column_by_battery'
+  get '/interventions/elevator_by_column/:id' => 'interventions#elevator_by_column'
+  
+
   resource :quotes
   resource :employees
   resource :lead
+  resources :interventions
  
   root 'pages#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
