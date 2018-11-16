@@ -42,10 +42,15 @@
 <!-- cascading dropdown -->
 
 <fieldset>
+	<%# <input type="hidden" name="action" value="intervention_send" /><form accept-charset="UTF-8" action="/" method="post">
 	<input type="hidden" name="action" value="intervention_send" />
+  <input name="utf8" type="hidden" value="&#x2713;" />
+  <input name="authenticity_token" type="hidden" value="J7CBxfHalt49OSHp27hblqK20c9PgwJ108nDHX/8Cts=" />
+  Form contents
+</form> %>
 
 
-<%= form_for, :intervention, %>
+
 <br>    <strong>Clients<strong>
 <div class="control-group text-red">
 		<div class="controls">
@@ -114,13 +119,11 @@
 
 
                 
-<div class="control-group">
-	<p>
-		<%= button_tag(class: "btn btn-red btn-danger btn-outline-primary") do %>
-			<i id="interventionSubmit" class="fa fa-check"></i> SUBMIT
-		<% end %>
-	</p>
-</div>
+	<div class="control-group">
+		<div class="controls">
+			<button type="submit" class="btn btn-secondary bouton_modal" >Submit</button>
+		</div>
+	</div>
 
 
 

@@ -33,10 +33,20 @@ def new_interventions
   intervention.column_id = intervention_params["column_id"]
   intervention.elevator_id = intervention_params["elevator_id"]
   intervention.emplouyee_id = intervention_params["employee_id"]
-  intervention.report = intervention_params["description"]
-  intervention.datetime =
+  intervention.report = intervention_params[:description]
+  intervention.starttime = ''
+  intervention.endtime = ''
+  intervention.result = 'incomplete'
+  intervention.status = 'pending'
   end
   
+  if @intervention.save
+    @intervention.save!
+    redirect_to root_path
+  else
+    @intervention.errors
+  end
+end
 
 end
   
