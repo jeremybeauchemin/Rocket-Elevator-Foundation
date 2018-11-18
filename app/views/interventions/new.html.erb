@@ -42,13 +42,8 @@
 <!-- cascading dropdown -->
 
 <fieldset>
-	<%# <input type="hidden" name="action" value="intervention_send" /><form accept-charset="UTF-8" action="/" method="post">
-	<input type="hidden" name="action" value="intervention_send" />
-  <input name="utf8" type="hidden" value="&#x2713;" />
-  <input name="authenticity_token" type="hidden" value="J7CBxfHalt49OSHp27hblqK20c9PgwJ108nDHX/8Cts=" />
-  Form contents
-</form> %>
-
+	
+<%= form_for :interventions, url: {action: "new_interventions"}, html: {method: "post"} do |f| %> 
 
 
 <br>    <strong>Clients<strong>
@@ -119,107 +114,12 @@
 
 
                 
-	<div class="control-group">
-		<div class="controls">
-			<button type="submit" class="btn btn-secondary bouton_modal" >Submit</button>
-		</div>
-	</div>
+<div class="text-center mb-10">
+	<%= f.submit "Submit" %>
+</div>
 
-
-
-<%= render 'form', intervention: @intervention %>
-
-<%= link_to 'Back', interventions_path %>
+<% end %>
 
 </fieldset>
 
 <!-- cascading dropdown -->
-
-<!-- FOOTER -->
-			<footer id="footer">
-				<div class="container">	
-					<div class="row">	
-						<!-- col #1 -->
-						<div class="col-md-8">	
-							<h3 class="letter-spacing-1">WHY US?</h3>	
-							<p>
-								<strong>Rocket Elevators</strong>  <br/>
-								Because we are putting you on top of everything.
-							</p>
-							<h2>1-418-580-7055</h2>
-						</div>
-						<!-- /col #1 -->	
-						<!-- col #2 -->
-						<div class="col-md-4">
-							<h3 class="letter-spacing-1">KEEP IN TOUCH</h3>	
-							<!-- Newsletter Form -->
-							<p>Subscribe to Our Newsletter to get Important News & Offers</p>	
-							<form class="validate" action="php/newsletter.php" method="post" data-success="Subscribed! Thank you!" data-toastr-position="bottom-right">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-									<input type="email" id="email" name="email" class="form-control required" placeholder="Enter your Email">
-									<span class="input-group-btn">
-										<button class="btn btn-success" type="submit">Subscribe</button>
-									</span>
-								</div>
-							</form>
-							<!-- /Newsletter Form -->	
-						</div>
-						<!-- /col #2 -->	
-					</div>	
-				</div>
-
-				<div class="copyright">
-					<div class="container">
-						<ul class="float-right m-0 list-inline mobile-block">
-						</ul>
-						&copy; All Rights Reserved, Rocket Elevator
-					</div>
-				</div>	
-			</footer>
-			<!-- /FOOTER -->	
-		</div>
-		<!-- /wrapper -->
-	
-	
-		<!-- SCROLL TO TOP -->
-		<a href="#top" id="toTop"></a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<%# <h1>New Intervention</h1> %>
-
-<%# <%= render 'form', intervention: @intervention %>
-
-<%# <%= link_to 'Back', interventions_path %> 
