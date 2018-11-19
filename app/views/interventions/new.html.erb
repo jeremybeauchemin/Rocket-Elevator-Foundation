@@ -49,7 +49,7 @@
 <br>    <strong>Clients<strong>
 <div class="control-group text-red">
 		<div class="controls">
-       <%= collection_select(:customer, :customer_id, Customer.all, :id, :company, { :prompt => 'select' }, { :multiple => false, id: 'customer_select' } ) %>
+       <%= collection_select(:interventions, :customer_id, Customer.all, :id, :company, { :prompt => 'select' }, { :multiple => false, id: 'customer_select' } ) %>
 </div>
 </div>
 
@@ -58,7 +58,7 @@
    <strong>Buildings<strong>
 <div class="control-group">
 		<div class="controls">
-      <%= collection_select(:building, :building_id, Building.all, :id, :customer_id, { :prompt => 'select' }, { :multiple => false, id: 'building_select' } ) %>
+      <%= collection_select(:interventions, :building_id, Building.all, :id, :customer_id, { :prompt => 'select' }, { :multiple => false, id: 'building_select' } ) %>
 </div>
 </div>
 
@@ -68,7 +68,7 @@
    <strong>Batteries<strong>
 <div class="control-group">
 		<div class="controls">
-      <%= collection_select(:battery, :battery_id, Battery.all, :id, :building_id, { :prompt => 'select' }, { :multiple => false, id: 'battery_select' } ) %>
+      <%= collection_select(:interventions, :battery_id, Battery.all, :id, :building_id, { :prompt => 'select' }, { :multiple => false, id: 'battery_select' } ) %>
 </div>
 </div>
 
@@ -78,7 +78,7 @@
    <strong>Columns<strong>
 <div class="control-group">
 	<div class="controls">     
-	 <%= collection_select(:column, :column_id, Column.all, :id, :battery_id, { :prompt => 'NONE' }, { :multiple => false, id: 'column_select' } ) %>
+	 <%= collection_select(:interventions, :column_id, Column.all, :id, :battery_id, { :prompt => 'NONE' }, { :multiple => false, id: 'column_select' } ) %>
 </div>
 </div>
 
@@ -88,7 +88,7 @@
    <strong>Elevators<strong>
 <div class="control-group">
 	<div class="controls">    
-<%= collection_select(:elevator, :elevator_id, Elevator.all, :id, :column_id, { :prompt => 'NONE' }, { :multiple => false, id: 'elevator_select' } ) %>
+<%= collection_select(:interventions, :elevator_id, Elevator.all, :id, :column_id, { :prompt => 'NONE' }, { :multiple => false, id: 'elevator_select' } ) %>
 </div>
 </div>
 
@@ -97,7 +97,7 @@
    <strong>Employees<strong>
 <div class="control-group">
 	<div class="controls">    
-<%= collection_select(:employee, :employee_id, Employee.all, :id, :name, {:prompt => 'NONE' }, { :multiple => false, id: 'employee_select' } ) %>
+<%= collection_select(:interventions, :employee_id, Employee.all, :id, :name, {:prompt => 'NONE' }, { :multiple => false, id: 'employee_select' } ) %>
 </div>
 </div>
 

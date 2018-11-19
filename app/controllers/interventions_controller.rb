@@ -27,25 +27,30 @@ class InterventionsController < ApplicationController
   end
 
   def new_interventions
-    intervention = Intervention.new
-    intervention.customer_id = intervention_params["customer_id"]
-    intervention.building_id = intervention_params["building_id"]
-    intervention.battery_id = intervention_params["battery_id"]
-    intervention.column_id = intervention_params["column_id"]
-    intervention.elevator_id = intervention_params["elevator_id"]
-    intervention.employee_id = intervention_params["employee_id"]
-    intervention.report = intervention_params[:description]
-    intervention.starttime = ''
-    intervention.endtime = ''
-    intervention.result = 'incomplete'
-    intervention.status = 'pending'
+    interventions = Intervention.new(interventions_params)
+    # interventions.customer_id = interventions_params["customer_id"]
+    # interventions.building_id = interventions_params["building_id"]
+    # interventions.battery_id = interventions_params["battery_id"]
+    # interventions.column_id = interventions_params["column_id"]
+    # interventions.elevator_id = interventions_params["elevator_id"]
+    # interventions.employee_id = interventions_params["employee_id"]
+    # interventions.report = interventions_params[:description]
+    interventions.start = ''
+    interventions.end = ''
+    interventions.Result = 'incomplete'
+    interventions.Status = 'pending'
     
-    if intervention.save
-      intervention.save!
+    if interventions.save!
 
       redirect_to root_path
     else
-      intervention.errors
+      interventions.errors
     end
+  end
+
+  private
+
+  def interventions_params
+    params.require(:interventions).permit(:customer_id, :building_id, :battery_id, :column_id, :elevator_id, :employee_id)
   end
 end
