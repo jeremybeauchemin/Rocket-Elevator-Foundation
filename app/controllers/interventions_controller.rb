@@ -1,3 +1,5 @@
+require 'zendesk_api'
+
 class InterventionsController < ApplicationController
   before_action :authenticate_user!
  
@@ -28,22 +30,26 @@ class InterventionsController < ApplicationController
 
   def new_interventions
     interventions = Intervention.new(interventions_params)
-    # interventions.customer_id = interventions_params["customer_id"]
-    # interventions.building_id = interventions_params["building_id"]
-    # interventions.battery_id = interventions_params["battery_id"]
-    # interventions.column_id = interventions_params["column_id"]
-    # interventions.elevator_id = interventions_params["elevator_id"]
-    # interventions.employee_id = interventions_params["employee_id"]
-    # interventions.report = interventions_params[:description]
     interventions.start = ''
     interventions.end = ''
     interventions.Result = 'incomplete'
     interventions.Status = 'pending'
     
     if interventions.save!
-
+      ZendeskAPI::Ticket.create!($client, 
+         {
+           :customer_id => interventions.customer_id,
+           :building_id => interventions.building_id, 
+           :battery_id => interventions.battery_id,
+            :column_id => interventions.column_id, 
+             :elevator_id => interventions.elevator_id,
+             :employee_id => interventions.employee_id,
+             :Report => interventions.Report,
+             :description => "test"
+         }
+       )
       redirect_to root_path
-    else
+     else
       interventions.errors
     end
   end
@@ -51,6 +57,10 @@ class InterventionsController < ApplicationController
   private
 
   def interventions_params
-    params.require(:interventions).permit(:customer_id, :building_id, :battery_id, :column_id, :elevator_id, :employee_id)
+    params.require(:interventions).permit(:author_id, :customer_id, :building_id, :battery_id, :column_id, :elevator_id, :employee_id, :Report)
   end
 end
+
+
+
+

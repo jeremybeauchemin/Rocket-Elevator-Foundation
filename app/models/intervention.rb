@@ -5,6 +5,7 @@ class Intervention < ApplicationRecord
     belongs_to :battery
     belongs_to :elevator
     belongs_to :employee
+    
 
     def intervention_results_enum
         ['Success','Failed','Incomplete']

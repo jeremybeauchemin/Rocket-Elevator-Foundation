@@ -1,37 +1,41 @@
-# require 'zendesk_api'
+require 'zendesk_api'
 
-# $client = ZendeskAPI::Client.new do |config|
-#   # Mandatory:
+$client = ZendeskAPI::Client.new do |config|
+  # Mandatory:
 
-#   config.url = ENV['ZENDESK_URL'] # e.g. https://mydesk.zendesk.com/api/v2
+  config.url = "https://jeremy9496.zendesk.com/api/v2" # e.g. https://mydesk.zendesk.com/api/v2
 
-#   # Basic / Token Authentication
-#   config.username = ENV['ZENDESK_USER']
+  # Basic / Token Authentication
+  config.username = "jbeaucjemin2701@gmail.com"
 
-#   # Choose one of the following depending on your authentication choice
-#   config.token = ENV['ZENDESK_TOKEN']
-#   #config.password = "your zendesk password"
+  # Choose one of the following depending on your authentication choice
+  # config.token = "oitlMFs4PsGU796bhYR6rn8dELxuwoEhyLSfOXEZ"
+  config.password = "morse8904"
 
-#   # OAuth Authentication
-#   #config.access_token = "your OAuth access token"
+end
 
-#   # Optional:
+  # OAuth Authentication
+  #config.access_token = "a93dd837aa892d0433e239c16e2b256c5b749c31bc36166473c51bc1523c1e81"
 
-#   # Retry uses middleware to notify the user
-#   # when hitting the rate limit, sleep automatically,
-#   # then retry the request.
-#   config.retry = true
+  # Optional:
 
-#   # Logger prints to STDERR by default, to e.g. print to stdout:
-#   require 'logger'
-#   config.logger = Logger.new(STDOUT)
+  # Retry uses middleware to notify the user
+  # when hitting the rate limit, sleep automatically,
+  # then retry the request.
+  #config.retry = true
 
-#   # Changes Faraday adapter
-#   # config.adapter = :patron
+  # Logger prints to STDERR by default, to e.g. print to stdout:
+  #require 'logger'
+  #config.logger = Logger.new(STDOUT)
 
-#   # Merged with the default client options hash
-#   # config.client_options = { :ssl => false }
 
-#   # When getting the error 'hostname does not match the server certificate'
-#   # use the API at https://yoursubdomain.zendesk.com/api/v2
-# end
+
+  # Changes Faraday adapter
+  # config.adapter = :patron
+
+  # Merged with the default client options hash
+  # config.client_options = { :ssl => false }
+
+  # When getting the error 'hostname does not match the server certificate'
+  # use the API at https://yoursubdomain.zendesk.com/api/v2
+  
