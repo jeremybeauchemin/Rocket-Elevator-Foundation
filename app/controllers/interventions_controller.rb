@@ -30,6 +30,7 @@ class InterventionsController < ApplicationController
 
   def new_interventions
     interventions = Intervention.new(interventions_params)
+    interventions.author_id = current_user.id
     interventions.start = ''
     interventions.end = ''
     interventions.Result = 'incomplete'
@@ -45,7 +46,7 @@ class InterventionsController < ApplicationController
              :elevator_id => interventions.elevator_id,
              :employee_id => interventions.employee_id,
              :Report => interventions.Report,
-             :description => "test"
+             :description => "Tickets"
          }
        )
       redirect_to root_path
