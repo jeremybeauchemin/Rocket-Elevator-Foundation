@@ -39,6 +39,7 @@ class InterventionsController < ApplicationController
     if interventions.save!
       ZendeskAPI::Ticket.create!($client, 
          {
+           :author_id => interventions.author_id,
            :customer_id => interventions.customer_id,
            :building_id => interventions.building_id, 
            :battery_id => interventions.battery_id,
