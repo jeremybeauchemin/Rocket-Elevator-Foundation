@@ -1,5 +1,6 @@
 require 'zendesk_api'
 
+
 class InterventionsController < ApplicationController
   before_action :authenticate_user!
  
@@ -37,19 +38,12 @@ class InterventionsController < ApplicationController
     interventions.Status = 'pending'
     
     if interventions.save!
-      ZendeskAPI::Ticket.create!($client, 
-         {
-           :author_id => interventions.author_id,
-           :customer_id => interventions.customer_id,
-           :building_id => interventions.building_id, 
-           :battery_id => interventions.battery_id,
-            :column_id => interventions.column_id, 
-             :elevator_id => interventions.elevator_id,
-             :employee_id => interventions.employee_id,
-             :Report => interventions.Report,
-             :description => "Tickets"
-         }
-       )
+      ZendeskAPI::Ticket.create!($client, :priority => "normal",
+        :subject => "#{interventions_params[:interventions]} Ticket #{interventions_params{:employee_id}}", 
+        :comment => "#{interventions_params[:author_id]} from #{interventions_params[:customer_id]} with #{interventions_params[:building_id]} and #{interventions_params[:battery_id]} and #{interventions_params[:column_id]} also #{interventions_params[:elevators]} and #{interventions_params[:employee_id]} and #{interventions_params[:author_id]} and #{interventions_params[:Report]}",
+        :submitter_id => current_user.id,
+        :type => "Task"
+        )
       redirect_to root_path
      else
       interventions.errors
