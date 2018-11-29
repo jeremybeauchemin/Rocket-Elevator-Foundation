@@ -1,7 +1,7 @@
 require 'zendesk_api'
 
 class InterventionsController < ApplicationController
-  before_action :set_intervention, only: [:show, :edit, :update, :destroy]
+  before_action :set_Intervention, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user! 
  
   def building_by_customer
