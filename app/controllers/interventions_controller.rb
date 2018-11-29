@@ -1,10 +1,8 @@
 require 'zendesk_api'
 
-
 class InterventionsController < ApplicationController
   before_action :authenticate_user!
  
-  
   def building_by_customer
     customer_id = params[:id]
     buildings = Building.where(customer_id: customer_id)
