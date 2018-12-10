@@ -1,4 +1,4 @@
-require 'zendesk_api'
+#require 'zendesk_api'
 
 class InterventionsController < ApplicationController
   before_action :set_Intervention, only: [:show, :edit, :update, :destroy]
@@ -37,12 +37,12 @@ class InterventionsController < ApplicationController
     interventions.Status = 'pending'
     
     if interventions.save!
-      ZendeskAPI::Ticket.create!($client, :priority => "normal",
-        :subject => "#{interventions_params[:interventions]} Ticket #{interventions_params{:employee_id}}", 
-        :comment => "#{interventions_params[:author_id]} from #{interventions_params[:customer_id]} with #{interventions_params[:building_id]} and #{interventions_params[:battery_id]} and #{interventions_params[:column_id]} also #{interventions_params[:elevators]} and #{interventions_params[:employee_id]} and #{interventions_params[:author_id]} and #{interventions_params[:Report]}",
-        :submitter_id => current_user.id,
-        :type => "Task"
-        )
+      # ZendeskAPI::Ticket.create!($client, :priority => "normal",
+      #   :subject => "#{interventions_params[:interventions]} Ticket #{interventions_params{:employee_id}}", 
+      #   :comment => "#{interventions_params[:author_id]} from #{interventions_params[:customer_id]} with #{interventions_params[:building_id]} and #{interventions_params[:battery_id]} and #{interventions_params[:column_id]} also #{interventions_params[:elevators]} and #{interventions_params[:employee_id]} and #{interventions_params[:author_id]} and #{interventions_params[:Report]}",
+      #   :submitter_id => current_user.id,
+      #   :type => "Task"
+      #   )
       redirect_to root_path
      else
       interventions.errors
