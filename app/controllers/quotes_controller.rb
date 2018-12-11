@@ -54,7 +54,7 @@
          quote.contact = contact
          quote.save!
          redirect_to root_path
-         create_zendesk_ticket(contact_params)
+        # create_zendesk_ticket(contact_params)
      end
 
      def create
