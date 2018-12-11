@@ -1,4 +1,4 @@
-require 'zendesk_api'
+#require 'zendesk_api'
 require 'sendgrid-ruby'
 include SendGrid
 require 'json'
@@ -13,7 +13,7 @@ class LeadsController < ApplicationController
     lead_params = params[:lead].permit!
 
     create_lead(lead_params)
-    create_zendesk_ticket(lead_params)
+   # create_zendesk_ticket(lead_params)
     send_confirmation_email(lead_params)
 
     redirect_to root_path
