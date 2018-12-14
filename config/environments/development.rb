@@ -1,4 +1,5 @@
-Rails.application.configure do
+require 'syslogger'
+ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -71,7 +72,6 @@ Rails.application.configure do
     :password             => "@dmin123",
     :authentication       => "plain"
   }
-  require 'syslogger'
   config.logger = Syslogger.new("rails-application",Syslog::LOG_PID, Syslog::LOG_LOCAL7)
   config.lograge.enabled = true
   config.lograge.formatter = Lograge::Formatters::Json.new
