@@ -26,6 +26,11 @@ gem 'rails_admin', '~> 1.3'
 #newrelic
 gem 'newrelic_rpm'
 
+#loggly
+gem 'syslogger', '~> 1.6.0'
+
+gem 'lograge', '~> 0.3.1'
+
 gem 'devise'
 
 gem 'figaro'
